@@ -26,6 +26,7 @@ rm -rf ./docker-compose.yml
 
 cp ./caddy/Caddyfile.raw ./caddy/Caddyfile
 cp ./xray/config.json.raw ./xray/config.json
+cp ./hysteria/config.raw ./hysteria/config.json
 cp ./docker-compose.raw ./docker-compose.yml
 
 read -p "Please input your server domain name(eg: abc.com): " domainName
@@ -53,7 +54,6 @@ fi
 trojan_password=${uuid: -12}
 sed -i "s/98bc7998-8e06-4193-84d2-38f2e10ee763/$uuid/g" ./xray/config.json
 sed -i "s/38f2e10ee763/$trojan_password/g" ./xray/config.json
-sed -i "s/38f2e10ee763/$trojan_password/g" ./hysteria/config.json
 sed -i "s/38f2e10ee763/$trojan_password/g" ./hysteria/config.json
 sed -i "s/passwd/$trojan_password/g" ./caddy/Caddyfile
 sed -i "s/38f2e10ee763/$trojan_password/g" ./docker-compose.yml

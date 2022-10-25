@@ -1,6 +1,6 @@
 # FlyWall
 
-这个项目是用于快速地使用Docker搭建FlyWall服务(Vless+Trojan+Naiveproxy+Hysteria)
+这个项目是用于快速地使用Docker搭建FlyWall服务(Vless+Trojan+Naiveproxy+Hysteria+WireGuard)
 
 ### 证书
 
