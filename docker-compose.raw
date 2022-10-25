@@ -60,8 +60,8 @@ services:
       breakwall:
         aliases:
           - hysteria
-
-   wg-easy:
+          
+  wg-easy:
     image: weejewel/wg-easy
     container_name: breakwall_wg_easy
     restart: unless-stopped
