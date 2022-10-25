@@ -100,7 +100,7 @@ chmod +x tcp.sh
 ## 下载源码
 
 ```
-git clone https://github.com/akvsdk/FlyWall.git
+git clone https://github.com/akvsdk/FlyWall.git && cd FlyWall
 ```
 
 ## Setting
@@ -132,6 +132,12 @@ Username: user
 Password: 26ca6873b4ed
 -----------------------------------------------
 Hysteria Configuration:
+Server: $domainName
+Port: 443
+Password: 26ca6873b4ed
+-----------------------------------------------	
+-----------------------------------------------
+WG-EASY Configuration:
 Server: $domainName
 Port: 443
 Password: 26ca6873b4ed

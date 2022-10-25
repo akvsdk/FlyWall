@@ -62,11 +62,12 @@ services:
           - hysteria
 
    wg-easy:
+    image: weejewel/wg-easy
+    container_name: breakwall_wg_easy
+    restart: unless-stopped
     environment:
       - WG_HOST=abc.com
       - PASSWORD=38f2e10ee763
-    image: weejewel/wg-easy
-    container_name: breakwall_wg_easy
     volumes:
       - ./wg-easy:/etc/wireguard
     cap_add:
@@ -74,14 +75,12 @@ services:
       - SYS_MODULE
     ports:
       - "51820:51820/udp"
-    restart: unless-stopped
     depends_on: 
       - caddy
     networks:
       breakwall:
         aliases:
           - wg_easy
-
-
+          
 networks:
     breakwall:
