@@ -1,30 +1,17 @@
 #!/bin/bash
 
-checkDocker=$(which docker)
-checkDockerCompose=$(which docker-compose)
-if [ "$checkDocker" == "" ] && [ "$checkDockerCompose" == "" ]; then
-	echo "Please install docker and docker-compose!"
-	exit
-elif [ "$checkDocker" == "" ]; then
-	echo "Please install docker!"
-	exit
-fi
-if [ "$checkDockerCompose" == "" ]; then
-	echo "Please install docker-compose!"
-	exit
-fi
 
 # echo "-----------------------------------------------"
 # echo "Docker:" $(docker -v)
 # echo "Docker-Compose:" $(docker-compose -v)
 # echo "-----------------------------------------------"
 
-git checkout . && git clean -Xdf
+git clean -Xdf && git pull
 
-rm -rf ./caddy/Caddyfile
-rm -rf ./xray/config.json
-rm -rf ./hysteria/config.json
-rm -rf ./docker-compose.yml
+# rm -rf ./caddy/Caddyfile
+# rm -rf ./xray/config.json
+# rm -rf ./hysteria/config.json
+# rm -rf ./docker-compose.yml
 
 cp ./caddy/Caddyfile.raw ./caddy/Caddyfile
 cp ./xray/config.json.raw ./xray/config.json
