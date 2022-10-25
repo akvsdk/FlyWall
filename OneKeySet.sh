@@ -22,10 +22,11 @@ fi
 rm -rf ./caddy/Caddyfile
 rm -rf ./xray/config.json
 rm -rf ./hysteria/config.json
+rm -rf ./docker-compose.yml
 
 cp ./caddy/Caddyfile.raw ./caddy/Caddyfile
 cp ./xray/config.json.raw ./xray/config.json
-cp ./hysteria/hysteria.raw ./hysteria/config.json
+cp ./docker-compose.raw ./docker-compose.yml
 
 read -p "Please input your server domain name(eg: abc.com): " domainName
 
@@ -37,6 +38,7 @@ else
 	sed -i "s/abc.com/$domainName/g" ./caddy/Caddyfile
 	sed -i "s/abc.com/$domainName/g" ./xray/config.json
 	sed -i "s/abc.com/$domainName/g" ./hysteria/config.json
+	sed -i "s/abc.com/$domainName/g" ./docker-compose.yml
 fi
 
 sys=$(uname)
@@ -52,7 +54,9 @@ trojan_password=${uuid: -12}
 sed -i "s/98bc7998-8e06-4193-84d2-38f2e10ee763/$uuid/g" ./xray/config.json
 sed -i "s/38f2e10ee763/$trojan_password/g" ./xray/config.json
 sed -i "s/38f2e10ee763/$trojan_password/g" ./hysteria/config.json
+sed -i "s/38f2e10ee763/$trojan_password/g" ./hysteria/config.json
 sed -i "s/passwd/$trojan_password/g" ./caddy/Caddyfile
+sed -i "s/38f2e10ee763/$trojan_password/g" ./docker-compose.yml
 
 # make a secret domain for naiveproxy
 randomDomain=$(openssl rand -hex 16)
@@ -81,6 +85,11 @@ echo "Server:" $domainName
 echo "Port: 443"
 echo "Password:" $trojan_password
 echo "-----------------------------------------------"
+echo "WG-EASY Configuration:"
+echo "Server:" $domainName
+echo "Port: 443"
+echo "Password:" $trojan_password
+echo "-----------------------------------------------"
 echo "Please run 'docker-compose up -d' to build!"
 echo "Enjoy it!"
 
@@ -104,6 +113,11 @@ cat <<-EOF >./info.txt
 	Password: $trojan_password
 	-----------------------------------------------
 	Hysteria Configuration:
+	Server: $domainName
+	Port: 443
+	Password: $trojan_password
+	-----------------------------------------------	
+	WG-EASY Configuration:
 	Server: $domainName
 	Port: 443
 	Password: $trojan_password

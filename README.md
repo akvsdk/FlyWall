@@ -1,6 +1,6 @@
-# Flywall
+# FlyWall
 
-这个项目是用于快速地使用Docker搭建Flywall服务(Vless+Trojan+Naiveproxy+Hysteria)
+这个项目是用于快速地使用Docker搭建FlyWall服务(Vless+Trojan+Naiveproxy+Hysteria)
 
 ### 证书
 
@@ -134,7 +134,7 @@ Password: 26ca6873b4ed
 Hysteria Configuration:
 Server: $domainName
 Port: 443
-Password: $trojan_password
+Password: 26ca6873b4ed
 -----------------------------------------------	
 Please run 'docker-compose up -d' to build!
 Enjoy it!
@@ -150,6 +150,8 @@ Enjoy it!
 3、在./xray/config.json中修改证书路径里面的域名（共4个地方）
 
 4、在./hysteria/config.json中修改Hysteria修改域名和Hysteria的密码
+
+5、在./hysteria/config.json中修改Hysteria修改域名和Hysteria的密码
 
 ## 构建
 ```
