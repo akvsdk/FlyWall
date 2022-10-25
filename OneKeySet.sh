@@ -19,6 +19,8 @@ fi
 # echo "Docker-Compose:" $(docker-compose -v)
 # echo "-----------------------------------------------"
 
+git checkout . && git clean -Xdf
+
 rm -rf ./caddy/Caddyfile
 rm -rf ./xray/config.json
 rm -rf ./hysteria/config.json
