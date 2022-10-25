@@ -107,4 +107,8 @@ venv.bak/
 test*.py
 .DS_Store
 
-wg-easy/
+
+caddy/Caddyfile
+xray/config.json
+hysteria/config.json
+docker-compose.yml
