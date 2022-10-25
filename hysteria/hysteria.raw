@@ -1,0 +1,8 @@
+{
+  "listen": ":443",
+  "cert": "/cert/abc.com/abc.com.crt",
+  "key": "/cert/abc.com/abc.com.key",
+  "obfs": "38f2e10ee763",
+  "up_mbps": 100,
+  "down_mbps": 100
+}
