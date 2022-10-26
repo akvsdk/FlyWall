@@ -1,6 +1,6 @@
 # FlyWall
 
-这个项目是用于快速地使用Docker搭建FlyWall服务(Vless+Trojan+Naiveproxy+Hysteria+WireGuard)
+这个项目是用于快速地使用Docker搭建FlyWall服务(Vless+Trojan+Naiveproxy+Hysteria+WireGuard+SS2022)
 
 ### 证书
 
@@ -132,13 +132,17 @@ Username: user
 Password: 26ca6873b4ed
 -----------------------------------------------
 Hysteria Configuration:
-Server: $domainName
+Server: abc.com
 Port: 443
 Password: 26ca6873b4ed
 -----------------------------------------------	
+SS2022 Configuration:
+Server: abc.com
+Port: 443
+Password: Qqi5rzW8j2mteSXc0R/FFNqwMh8bAyLyYpHzWX3/AsA=
 -----------------------------------------------
 WG-EASY Configuration:
-Server: $domainName
+Server: abc.com
 Port: 443
 Password: 26ca6873b4ed
 -----------------------------------------------	
@@ -157,7 +161,7 @@ Enjoy it!
 
 4、在./hysteria/config.json中修改Hysteria修改域名和Hysteria的密码
 
-5、在./hysteria/config.json中修改Hysteria修改域名和Hysteria的密码
+5、在./docker-compose.yml中修改**wg-easy**的UI登录**PASSWORD**
 
 ## 构建
 ```
@@ -178,7 +182,14 @@ docker-compose logs -f -t --tail=30
 
 ## 网站配置
 
-如果需要部署静态网站替换掉Caddy的默认页，只需要将网站放入caddy/www里面即可
+如果需要部署静态网站替换掉(~~Caddy的默认页~~)wg-easy，只需要将网站放入caddy/www里面,并且修改**Caddyfile**
+```
+    file_server {
+        root /usr/share/caddy
+        browse
+    }
+#    reverse_proxy wg_easy:51821
+```
 
 ## 注意事项
 

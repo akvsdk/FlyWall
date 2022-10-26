@@ -14,7 +14,7 @@
 :443, abc.com {
   route {
     forward_proxy {
-        basic_auth superuser passwd
+        basic_auth user passwd
         hide_ip
         hide_via
         probe_resistance randomDomain.com  #Modify to a secret domain, like password
@@ -23,12 +23,12 @@
 #        root /usr/share/caddy
 #        browse
 #    }
-    reverse_proxy wg_easy:51821
   }
+   reverse_proxy wg_easy:51821
 }
 
 :81 {
-  reverse_proxy wg-easy:51821
+#  reverse_proxy wg-easy:51821
   file_server {
         root /usr/share/caddy
         browse

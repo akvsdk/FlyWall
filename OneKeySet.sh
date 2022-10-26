@@ -51,6 +51,10 @@ sed -i "s/38f2e10ee763/$trojan_password/g" ./docker-compose.yml
 randomDomain=$(openssl rand -hex 16)
 sed -i "s/randomDomain/$randomDomain/g" ./caddy/Caddyfile
 
+# make a secret domain for ss 2022
+randomPass=$(openssl rand -base64 32)
+sed -i "s/randomPass/$randomPass/g" ./xray/config.json
+
 echo "-----------------------------------------------"
 echo "XRay Configuration:"
 echo "VLESS:"
@@ -73,6 +77,12 @@ echo "Hysteria Configuration:"
 echo "Server:" $domainName
 echo "Port: 443"
 echo "Password:" $trojan_password
+echo "-----------------------------------------------"
+echo "SS2022 Configuration:"
+echo "Server:" $domainName
+echo "Port: 4444"
+echo "Metho: 2022-blake3-chacha20-poly1305"
+echo "Password:" $randomPass
 echo "-----------------------------------------------"
 echo "WG-EASY Configuration:"
 echo "Server:" $domainName
@@ -105,6 +115,12 @@ cat <<-EOF >./info.txt
 	Server: $domainName
 	Port: 443
 	Password: $trojan_password
+	-----------------------------------------------	
+	SS2022 Configuration:
+	Server: $domainName
+	Port: 4444
+	Metho: 2022-blake3-chacha20-poly1305
+	Password: $randomPass
 	-----------------------------------------------	
 	WG-EASY Configuration:
 	Server: $domainName
