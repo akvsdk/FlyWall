@@ -163,4 +163,6 @@ DOMAIN,stream2.misakaf.org
 DOMAIN,stream3.misakaf.org
 DOMAIN,stream4.misakaf.org
 DOMAIN,stream_pilipili.misakaf.org
-DOMAIN,aca.misakaf.org
+DOMAIN,aca.misakaf.or
+DOMAIN-KEYWORD,eoos
+DOMAIN-KEYWORD,emos
