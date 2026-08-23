@@ -4,71 +4,6 @@
     "level": "info",
     "timestamp": true
   },
-  "dns": {
-    "servers": [
-      {
-        "type": "udp",
-        "tag": "dns-local",
-        "server": "223.5.5.5",
-        "server_port": 53,
-        "detour": "direct"
-      },
-      {
-        "type": "https",
-        "tag": "dns-remote",
-        "server": "1.1.1.1",
-        "server_port": 443,
-        "path": "/dns-query",
-        "tls": {
-          "enabled": true,
-          "server_name": "cloudflare-dns.com"
-        },
-        "detour": "🌐 Proxy"
-      },
-      {
-        "type": "fakeip",
-        "tag": "fakeip",
-        "inet4_range": "198.18.0.0/15",
-        "inet6_range": "fc00::/18"
-      }
-    ],
-    "rules": [
-      {
-        "clash_mode": "Direct",
-        "action": "route",
-        "server": "dns-local"
-      },
-      {
-        "clash_mode": "Global",
-        "action": "route",
-        "server": "fakeip"
-      },
-      {
-        "query_type": "HTTPS",
-        "action": "reject"
-      },
-      {
-        "rule_set": [
-          "cn-domain",
-          "private-domain"
-        ],
-        "action": "route",
-        "server": "dns-local"
-      },
-      {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "action": "route",
-        "server": "fakeip",
-        "rewrite_ttl": 300
-      }
-    ],
-    "final": "dns-remote",
-    "strategy": "ipv4_only",
-    "independent_cache": true
-  },
   "inbounds": [
     {
       "type": "tun",
@@ -467,19 +402,6 @@
         "timeout": "500ms"
       },
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 53
-          },
-          {
-            "protocol": "dns"
-          }
-        ],
-        "action": "hijack-dns"
-      },
-      {
         "ip_is_private": true,
         "outbound": "direct"
       },
@@ -767,8 +689,7 @@
       }
     ],
     "final": "🐟 漏网之鱼",
-    "auto_detect_interface": true,
-    "default_domain_resolver": "dns-local"
+    "auto_detect_interface": true
   },
   "experimental": {
     "clash_api": {
@@ -776,10 +697,6 @@
       "external_ui": "ui",
       "external_ui_download_url": "https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "direct"
-    },
-    "cache_file": {
-      "enabled": true,
-      "store_fakeip": true
     }
   }
 }
