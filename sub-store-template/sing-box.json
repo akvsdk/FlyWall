@@ -23,7 +23,7 @@
           "enabled": true,
           "server_name": "cloudflare-dns.com"
         },
-        "detour": "proxy"
+        "detour": "🌐 Proxy"
       },
       {
         "type": "fakeip",
@@ -88,159 +88,240 @@
   "outbounds": [
     {
       "type": "selector",
-      "tag": "proxy",
+      "tag": "🌐 Proxy",
       "outbounds": [
-        "main-auto",
-        "backup-auto",
-        "all-auto",
-        "main-manual",
-        "backup-manual",
-        "all-manual",
+        "🟢 主力自动",
+        "🔵 备用自动",
+        "🔄 全部自动",
+        "✈️ 主力手动",
+        "🚀 备用手动",
+        "♻️ 全部手动",
         "direct"
       ],
-      "default": "main-auto",
+      "default": "🟢 主力自动",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "chain-front",
+      "tag": "🪜 链式前置",
       "outbounds": [
-        "main-auto",
-        "backup-auto",
-        "main-manual",
-        "backup-manual",
+        "🟢 主力自动",
+        "🔵 备用自动",
+        "✈️ 主力手动",
+        "🚀 备用手动",
         "direct"
       ],
-      "default": "main-auto",
+      "default": "🟢 主力自动",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "landing",
+      "tag": "🏠 家宽落地",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "landing-direct",
+      "tag": "🏡 家宽直连",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "landing-ss",
+      "tag": "🔗 SS链式落地",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "openai",
+      "tag": "🤖 AI",
       "outbounds": [
-        "landing",
-        "us-auto",
-        "proxy",
+        "🏠 家宽落地",
+        "🏡 家宽直连",
+        "🔗 SS链式落地",
+        "🇺🇸 美国节点",
+        "🌐 Proxy",
         "direct"
       ],
-      "default": "landing",
+      "default": "🏠 家宽落地",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "twitter",
+      "tag": "🐦 X / Twitter",
       "outbounds": [
-        "landing",
-        "proxy",
-        "us-auto",
+        "🏠 家宽落地",
+        "🌐 Proxy",
+        "🇺🇸 美国节点",
         "direct"
       ],
-      "default": "landing",
+      "default": "🏠 家宽落地",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "google",
-      "outbounds": [
-        "proxy",
-        "hk-auto",
-        "jp-auto",
-        "sg-auto",
-        "us-auto",
-        "direct"
-      ],
-      "default": "proxy",
-      "interrupt_exist_connections": true
-    },
-    {
-      "type": "selector",
-      "tag": "telegram",
-      "outbounds": [
-        "proxy",
-        "sg-auto",
-        "hk-auto",
-        "us-auto"
-      ],
-      "default": "proxy",
-      "interrupt_exist_connections": true
-    },
-    {
-      "type": "selector",
-      "tag": "streaming",
-      "outbounds": [
-        "proxy",
-        "landing",
-        "hk-auto",
-        "tw-auto",
-        "jp-auto",
-        "sg-auto",
-        "us-auto",
-        "direct"
-      ],
-      "default": "proxy",
-      "interrupt_exist_connections": true
-    },
-    {
-      "type": "selector",
-      "tag": "apple",
+      "tag": "📺 Emby",
       "outbounds": [
         "direct",
-        "proxy"
+        "🌐 Proxy",
+        "🏠 家宽落地",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点"
       ],
       "default": "direct",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "microsoft",
+      "tag": "▶️ YouTube",
       "outbounds": [
-        "direct",
-        "proxy"
-      ],
-      "default": "direct",
-      "interrupt_exist_connections": true
-    },
-    {
-      "type": "selector",
-      "tag": "speedtest",
-      "outbounds": [
-        "direct",
-        "proxy",
-        "main-manual",
-        "backup-manual",
-        "all-manual"
-      ],
-      "default": "direct",
-      "interrupt_exist_connections": true
-    },
-    {
-      "type": "selector",
-      "tag": "final",
-      "outbounds": [
-        "proxy",
-        "main-manual",
-        "backup-manual",
+        "🌐 Proxy",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
         "direct"
       ],
-      "default": "proxy",
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🐙 GitHub",
+      "outbounds": [
+        "🌐 Proxy",
+        "🇺🇸 美国节点",
+        "🇭🇰 香港节点",
+        "direct"
+      ],
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "👤 Facebook",
+      "outbounds": [
+        "🌐 Proxy",
+        "🏠 家宽落地",
+        "🇺🇸 美国节点",
+        "🇸🇬 新加坡节点"
+      ],
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🛍️ Amazon",
+      "outbounds": [
+        "🌐 Proxy",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "direct"
+      ],
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🎮 Game",
+      "outbounds": [
+        "direct",
+        "🌐 Proxy",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点"
+      ],
+      "default": "direct",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🌌 Google",
+      "outbounds": [
+        "🌐 Proxy",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "direct"
+      ],
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "📲 Telegram",
+      "outbounds": [
+        "🌐 Proxy",
+        "🇸🇬 新加坡节点",
+        "🇭🇰 香港节点",
+        "🇺🇸 美国节点"
+      ],
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🎬 流媒体",
+      "outbounds": [
+        "🌐 Proxy",
+        "🏠 家宽落地",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇯🇵 日本节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "direct"
+      ],
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🍎 Apple",
+      "outbounds": [
+        "direct",
+        "🌐 Proxy"
+      ],
+      "default": "direct",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🧩 Microsoft",
+      "outbounds": [
+        "direct",
+        "🌐 Proxy"
+      ],
+      "default": "direct",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "⏱️ Speedtest",
+      "outbounds": [
+        "direct",
+        "🌐 Proxy",
+        "✈️ 主力手动",
+        "🚀 备用手动",
+        "♻️ 全部手动"
+      ],
+      "default": "direct",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "🐟 漏网之鱼",
+      "outbounds": [
+        "🌐 Proxy",
+        "✈️ 主力手动",
+        "🚀 备用手动",
+        "direct"
+      ],
+      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
@@ -248,24 +329,24 @@
       "tag": "GLOBAL",
       "outbounds": [
         "direct",
-        "proxy",
-        "landing",
-        "main-manual",
-        "backup-manual",
-        "all-manual"
+        "🌐 Proxy",
+        "🏠 家宽落地",
+        "✈️ 主力手动",
+        "🚀 备用手动",
+        "♻️ 全部手动"
       ],
       "default": "direct",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "main-manual",
+      "tag": "✈️ 主力手动",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
-      "tag": "main-auto",
+      "tag": "🟢 主力自动",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -275,13 +356,13 @@
     },
     {
       "type": "selector",
-      "tag": "backup-manual",
+      "tag": "🚀 备用手动",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
-      "tag": "backup-auto",
+      "tag": "🔵 备用自动",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -291,13 +372,13 @@
     },
     {
       "type": "selector",
-      "tag": "all-manual",
+      "tag": "♻️ 全部手动",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
-      "tag": "all-auto",
+      "tag": "🔄 全部自动",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -306,70 +387,48 @@
       "interrupt_exist_connections": true
     },
     {
-      "type": "selector",
-      "tag": "hk-manual",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
       "type": "urltest",
-      "tag": "hk-auto",
+      "tag": "🇭🇰 香港节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 80
     },
     {
-      "type": "selector",
-      "tag": "tw-manual",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
       "type": "urltest",
-      "tag": "tw-auto",
+      "tag": "🇨🇳 台湾节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 80
     },
     {
-      "type": "selector",
-      "tag": "jp-manual",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
       "type": "urltest",
-      "tag": "jp-auto",
+      "tag": "🇯🇵 日本节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 80
     },
     {
-      "type": "selector",
-      "tag": "sg-manual",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
       "type": "urltest",
-      "tag": "sg-auto",
+      "tag": "🇸🇬 新加坡节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 80
     },
     {
-      "type": "selector",
-      "tag": "us-manual",
+      "type": "urltest",
+      "tag": "🇺🇸 美国节点",
       "outbounds": [],
-      "interrupt_exist_connections": true
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 80
     },
     {
       "type": "urltest",
-      "tag": "us-auto",
+      "tag": "🌍 其他节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -422,29 +481,44 @@
           "openai-domain",
           "gemini-domain"
         ],
-        "outbound": "openai"
+        "outbound": "🤖 AI"
       },
       {
         "rule_set": "twitter-domain",
-        "outbound": "twitter"
+        "outbound": "🐦 X / Twitter"
+      },
+      {
+        "rule_set": "emby-custom",
+        "outbound": "📺 Emby"
       },
       {
         "rule_set": "youtube-domain",
-        "outbound": "google"
+        "outbound": "▶️ YouTube"
+      },
+      {
+        "rule_set": "github-domain",
+        "outbound": "🐙 GitHub"
       },
       {
         "rule_set": [
           "google-domain",
           "google-ip"
         ],
-        "outbound": "google"
+        "outbound": "🌌 Google"
       },
       {
         "rule_set": [
           "telegram-domain",
           "telegram-ip"
         ],
-        "outbound": "telegram"
+        "outbound": "📲 Telegram"
+      },
+      {
+        "rule_set": [
+          "facebook-domain",
+          "instagram-domain"
+        ],
+        "outbound": "👤 Facebook"
       },
       {
         "rule_set": [
@@ -453,19 +527,27 @@
           "disney-domain",
           "primevideo-domain"
         ],
-        "outbound": "streaming"
+        "outbound": "🎬 流媒体"
       },
       {
         "rule_set": "apple-domain",
-        "outbound": "apple"
+        "outbound": "🍎 Apple"
       },
       {
         "rule_set": "microsoft-domain",
-        "outbound": "microsoft"
+        "outbound": "🧩 Microsoft"
+      },
+      {
+        "rule_set": "amazon-domain",
+        "outbound": "🛍️ Amazon"
       },
       {
         "rule_set": "speedtest-domain",
-        "outbound": "speedtest"
+        "outbound": "⏱️ Speedtest"
+      },
+      {
+        "rule_set": "games-cn-domain",
+        "outbound": "direct"
       },
       {
         "rule_set": [
@@ -473,6 +555,10 @@
           "cn-ip"
         ],
         "outbound": "direct"
+      },
+      {
+        "rule_set": "games-domain",
+        "outbound": "🎮 Game"
       }
     ],
     "rule_set": [
@@ -512,10 +598,32 @@
         "download_detour": "direct"
       },
       {
+        "type": "inline",
+        "tag": "emby-custom",
+        "rules": [
+          {
+            "domain": [
+              "aaa.yusen6.ccwu.cc",
+              "link00.okemby.org",
+              "gy.meowfly.de",
+              "media.nookreel.com",
+              "cf.maodu.xyz"
+            ]
+          }
+        ]
+      },
+      {
         "type": "remote",
         "tag": "youtube-domain",
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/youtube.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "github-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/github.srs",
         "download_detour": "direct"
       },
       {
@@ -544,6 +652,20 @@
         "tag": "telegram-ip",
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/telegram.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "facebook-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/facebook.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "instagram-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/instagram.srs",
         "download_detour": "direct"
       },
       {
@@ -590,13 +712,34 @@
       },
       {
         "type": "remote",
+        "tag": "amazon-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/amazon.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "games-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/category-games.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "games-cn-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/category-games@cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
         "tag": "speedtest-domain",
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/ookla-speedtest.srs",
         "download_detour": "direct"
       }
     ],
-    "final": "final",
+    "final": "🐟 漏网之鱼",
     "auto_detect_interface": true,
     "default_domain_resolver": "dns-local"
   },
