@@ -48,7 +48,10 @@
         "action": "reject"
       },
       {
-        "rule_set": "cn-domain",
+        "rule_set": [
+          "cn-domain",
+          "private-domain"
+        ],
         "action": "route",
         "server": "dns-local"
       },
@@ -225,13 +228,25 @@
     },
     {
       "type": "selector",
-      "tag": "🎮 Game",
+      "tag": "🎵 TikTok",
+      "outbounds": [
+        "🌐 Proxy",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "direct"
+      ],
+      "default": "🌐 Proxy",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "☁️ OneDrive",
       "outbounds": [
         "direct",
         "🌐 Proxy",
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
-        "🇸🇬 新加坡节点",
         "🇺🇸 美国节点"
       ],
       "default": "direct",
@@ -469,6 +484,10 @@
         "outbound": "direct"
       },
       {
+        "rule_set": "private-domain",
+        "outbound": "direct"
+      },
+      {
         "clash_mode": "Global",
         "outbound": "GLOBAL"
       },
@@ -477,15 +496,16 @@
         "outbound": "direct"
       },
       {
-        "rule_set": [
-          "openai-domain",
-          "gemini-domain"
-        ],
+        "rule_set": "dustin-ai",
         "outbound": "🤖 AI"
       },
       {
         "rule_set": "twitter-domain",
         "outbound": "🐦 X / Twitter"
+      },
+      {
+        "rule_set": "tiktok-domain",
+        "outbound": "🎵 TikTok"
       },
       {
         "rule_set": "emby-custom",
@@ -538,6 +558,10 @@
         "outbound": "🧩 Microsoft"
       },
       {
+        "rule_set": "onedrive-domain",
+        "outbound": "☁️ OneDrive"
+      },
+      {
         "rule_set": "amazon-domain",
         "outbound": "🛍️ Amazon"
       },
@@ -546,8 +570,8 @@
         "outbound": "⏱️ Speedtest"
       },
       {
-        "rule_set": "games-cn-domain",
-        "outbound": "direct"
+        "rule_set": "geolocation-non-cn-domain",
+        "outbound": "🌐 Proxy"
       },
       {
         "rule_set": [
@@ -555,10 +579,6 @@
           "cn-ip"
         ],
         "outbound": "direct"
-      },
-      {
-        "rule_set": "games-domain",
-        "outbound": "🎮 Game"
       }
     ],
     "rule_set": [
@@ -578,16 +598,23 @@
       },
       {
         "type": "remote",
-        "tag": "openai-domain",
+        "tag": "private-domain",
         "format": "binary",
-        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/openai.srs",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/private.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
-        "tag": "gemini-domain",
+        "tag": "geolocation-non-cn-domain",
         "format": "binary",
-        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/google-gemini.srs",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "dustin-ai",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ai.srs",
         "download_detour": "direct"
       },
       {
@@ -595,6 +622,13 @@
         "tag": "twitter-domain",
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/twitter.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "tiktok-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/tiktok.srs",
         "download_detour": "direct"
       },
       {
@@ -712,23 +746,16 @@
       },
       {
         "type": "remote",
+        "tag": "onedrive-domain",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/onedrive.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
         "tag": "amazon-domain",
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/amazon.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "games-domain",
-        "format": "binary",
-        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/category-games.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "games-cn-domain",
-        "format": "binary",
-        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/category-games@cn.srs",
         "download_detour": "direct"
       },
       {
@@ -752,8 +779,7 @@
     },
     "cache_file": {
       "enabled": true,
-      "store_fakeip": true,
-      "store_dns": true
+      "store_fakeip": true
     }
   }
 }
