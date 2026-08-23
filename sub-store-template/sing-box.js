@@ -47,22 +47,31 @@ const regionRules = {
 }
 
 const groups = {
-  'main-manual': mainTags,
-  'main-auto': mainTags,
-  'backup-manual': backupTags,
-  'backup-auto': backupTags,
-  'all-manual': [...mainTags, ...backupTags],
-  'all-auto': [...mainTags, ...backupTags],
-  landing: landTags,
-  'landing-direct': landDirectTags,
-  'landing-ss': landSsTags,
+  '✈️ 主力手动': mainTags,
+  '🟢 主力自动': mainTags,
+  '🚀 备用手动': backupTags,
+  '🔵 备用自动': backupTags,
+  '♻️ 全部手动': [...mainTags, ...backupTags],
+  '🔄 全部自动': [...mainTags, ...backupTags],
+  '🏠 家宽落地': landTags,
+  '🏡 家宽直连': landDirectTags,
+  '🔗 SS链式落地': landSsTags,
 }
 
+const matchedRegionTags = new Set()
+const regionGroupNames = {
+  hk: '🇭🇰 香港节点',
+  tw: '🇨🇳 台湾节点',
+  jp: '🇯🇵 日本节点',
+  sg: '🇸🇬 新加坡节点',
+  us: '🇺🇸 美国节点',
+}
 for (const [region, regex] of Object.entries(regionRules)) {
   const regionTags = tags(regularNodes.filter(node => regex.test(node.tag)))
-  groups[`${region}-manual`] = regionTags
-  groups[`${region}-auto`] = regionTags
+  regionTags.forEach(tag => matchedRegionTags.add(tag))
+  groups[regionGroupNames[region]] = regionTags
 }
+groups['🌍 其他节点'] = tags(regularNodes.filter(node => !matchedRegionTags.has(node.tag)))
 
 for (const outbound of config.outbounds) {
   if (!Object.prototype.hasOwnProperty.call(groups, outbound.tag)) continue
@@ -123,7 +132,7 @@ function normalizeNode(node, prefix, isLanding) {
   copy.tag = uniqueTag(`${prefix}/${copy.tag}`)
 
   // Standard sing-box dialer field; no provider/reF1nd extension is used.
-  if (isLanding && copy.type === 'shadowsocks') copy.detour = 'chain-front'
+  if (isLanding && copy.type === 'shadowsocks') copy.detour = '🪜 链式前置'
   else delete copy.detour
   return copy
 }
