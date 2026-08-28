@@ -51,8 +51,8 @@ const groups = {
   '🟢 主力自动': mainTags,
   '🚀 备用手动': backupTags,
   '🔵 备用自动': backupTags,
-  '♻️ 全部手动': [...mainTags, ...backupTags],
-  '🔄 全部自动': [...mainTags, ...backupTags],
+  '♻️ 手动选择': [...mainTags, ...backupTags],
+  '🔄 自动选择': [...mainTags, ...backupTags],
   '🏠 家宽落地': landTags,
   '🏡 家宽直连': landDirectTags,
   '🔗 SS链式落地': landSsTags,
@@ -61,10 +61,10 @@ const groups = {
 const matchedRegionTags = new Set()
 const regionGroupNames = {
   hk: '🇭🇰 香港节点',
-  tw: '🇨🇳 台湾节点',
+  tw: '✨台湾节点',
   jp: '🇯🇵 日本节点',
-  sg: '🇸🇬 新加坡节点',
-  us: '🇺🇸 美国节点',
+  sg: '🇸🇬 狮城节点',
+  us: '🇺🇲 美国节点',
 }
 for (const [region, regex] of Object.entries(regionRules)) {
   const regionTags = tags(regularNodes.filter(node => regex.test(node.tag)))
@@ -132,7 +132,7 @@ function normalizeNode(node, prefix, isLanding) {
   copy.tag = uniqueTag(`${prefix}/${copy.tag}`)
 
   // Standard sing-box dialer field; no provider/reF1nd extension is used.
-  if (isLanding && copy.type === 'shadowsocks') copy.detour = '🪜 链式前置'
+  if (isLanding && copy.type === 'shadowsocks') copy.detour = '🔗 链式前置'
   else delete copy.detour
   return copy
 }
