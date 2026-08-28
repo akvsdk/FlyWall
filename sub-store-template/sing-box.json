@@ -25,18 +25,17 @@
       "outbounds": [
         "🟢 主力自动",
         "🔵 备用自动",
-        "🔄 全部自动",
+        "🔄 自动选择",
         "✈️ 主力手动",
         "🚀 备用手动",
-        "♻️ 全部手动",
+        "♻️ 手动选择",
         "direct"
       ],
-      "default": "🟢 主力自动",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
-      "tag": "🪜 链式前置",
+      "tag": "🔗 链式前置",
       "outbounds": [
         "🟢 主力自动",
         "🔵 备用自动",
@@ -44,7 +43,6 @@
         "🚀 备用手动",
         "direct"
       ],
-      "default": "🟢 主力自动",
       "interrupt_exist_connections": true
     },
     {
@@ -69,192 +67,187 @@
       "type": "selector",
       "tag": "🤖 AI",
       "outbounds": [
+        "🚀 节点选择",
         "🏠 家宽落地",
         "🏡 家宽直连",
         "🔗 SS链式落地",
-        "🇺🇸 美国节点",
+        "🇺🇲 美国节点",
         "🌐 Proxy",
         "direct"
       ],
-      "default": "🏠 家宽落地",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🐦 X / Twitter",
       "outbounds": [
+        "🚀 节点选择",
         "🏠 家宽落地",
         "🌐 Proxy",
-        "🇺🇸 美国节点",
+        "🇺🇲 美国节点",
         "direct"
       ],
-      "default": "🏠 家宽落地",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "📺 Emby",
       "outbounds": [
-        "direct",
+        "♻️ 手动选择",
         "🌐 Proxy",
         "🏠 家宽落地",
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点"
+        "🇸🇬 狮城节点",
+        "🇺🇲 美国节点"
       ],
-      "default": "direct",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "▶️ YouTube",
       "outbounds": [
+        "🚀 节点选择",
         "🌐 Proxy",
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点",
+        "🇸🇬 狮城节点",
+        "🇺🇲 美国节点",
         "direct"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🐙 GitHub",
       "outbounds": [
+        "🚀 节点选择",
         "🌐 Proxy",
-        "🇺🇸 美国节点",
+        "🇺🇲 美国节点",
         "🇭🇰 香港节点",
         "direct"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "👤 Facebook",
       "outbounds": [
-        "🌐 Proxy",
         "🏠 家宽落地",
-        "🇺🇸 美国节点",
-        "🇸🇬 新加坡节点"
+        "🌐 Proxy",
+        "🇺🇲 美国节点",
+        "🇸🇬 狮城节点"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🛍️ Amazon",
       "outbounds": [
+        "🚀 节点选择",
         "🌐 Proxy",
-        "🇺🇸 美国节点",
+        "🇺🇲 美国节点",
         "🇯🇵 日本节点",
         "direct"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🎵 TikTok",
       "outbounds": [
+        "🚀 节点选择",
         "🌐 Proxy",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点",
+        "🇸🇬 狮城节点",
+        "🇺🇲 美国节点",
         "🇯🇵 日本节点",
         "direct"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "☁️ OneDrive",
       "outbounds": [
+        "🚀 节点选择",
         "direct",
         "🌐 Proxy",
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
-        "🇺🇸 美国节点"
+        "🇺🇲 美国节点"
       ],
-      "default": "direct",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🌌 Google",
       "outbounds": [
+        "🚀 节点选择",
         "🌐 Proxy",
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点",
-        "direct"
+        "🇸🇬 狮城节点",
+        "🇺🇲 美国节点"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "📲 Telegram",
       "outbounds": [
+        "🚀 节点选择",
         "🌐 Proxy",
-        "🇸🇬 新加坡节点",
+        "🇸🇬 狮城节点",
         "🇭🇰 香港节点",
-        "🇺🇸 美国节点"
+        "🇺🇲 美国节点"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🎬 流媒体",
       "outbounds": [
+        "🚀 节点选择",
         "🌐 Proxy",
         "🏠 家宽落地",
         "🇭🇰 香港节点",
-        "🇨🇳 台湾节点",
+        "✨台湾节点",
         "🇯🇵 日本节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点",
+        "🇸🇬 狮城节点",
+        "🇺🇲 美国节点",
         "direct"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🍎 Apple",
       "outbounds": [
+        "🚀 节点选择",
         "direct",
         "🌐 Proxy"
       ],
-      "default": "direct",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "🧩 Microsoft",
       "outbounds": [
+        "🚀 节点选择",
         "direct",
         "🌐 Proxy"
       ],
-      "default": "direct",
       "interrupt_exist_connections": true
     },
     {
       "type": "selector",
       "tag": "⏱️ Speedtest",
       "outbounds": [
-        "direct",
+        "♻️ 手动选择",
         "🌐 Proxy",
         "✈️ 主力手动",
-        "🚀 备用手动",
-        "♻️ 全部手动"
+        "🚀 备用手动"
       ],
-      "default": "direct",
       "interrupt_exist_connections": true
     },
     {
@@ -266,7 +259,6 @@
         "🚀 备用手动",
         "direct"
       ],
-      "default": "🌐 Proxy",
       "interrupt_exist_connections": true
     },
     {
@@ -278,9 +270,8 @@
         "🏠 家宽落地",
         "✈️ 主力手动",
         "🚀 备用手动",
-        "♻️ 全部手动"
+        "♻️ 手动选择"
       ],
-      "default": "direct",
       "interrupt_exist_connections": true
     },
     {
@@ -317,13 +308,13 @@
     },
     {
       "type": "selector",
-      "tag": "♻️ 全部手动",
+      "tag": "♻️ 手动选择",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
-      "tag": "🔄 全部自动",
+      "tag": "🔄 自动选择",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -341,7 +332,7 @@
     },
     {
       "type": "urltest",
-      "tag": "🇨🇳 台湾节点",
+      "tag": "✨台湾节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -357,7 +348,7 @@
     },
     {
       "type": "urltest",
-      "tag": "🇸🇬 新加坡节点",
+      "tag": "🇸🇬 狮城节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -365,7 +356,7 @@
     },
     {
       "type": "urltest",
-      "tag": "🇺🇸 美国节点",
+      "tag": "🇺🇲 美国节点",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -382,6 +373,22 @@
     {
       "type": "direct",
       "tag": "direct"
+    },
+    {
+      "type": "selector",
+      "tag": "🚀 节点选择",
+      "outbounds": [
+        "🌐 Proxy",
+        "♻️ 手动选择",
+        "✨台湾节点",
+        "🇯🇵 日本节点",
+        "🇸🇬 狮城节点",
+        "🇭🇰 香港节点",
+        "🇺🇲 美国节点",
+        "🔰 其它节点",
+        "🏠 家宽落地"
+      ],
+      "interrupt_exist_connections": true
     }
   ],
   "route": {
